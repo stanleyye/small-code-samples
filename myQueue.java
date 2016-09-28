@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * Generic implementation of a queue using two stacks.
+ * Generic implementation of a queue using two stacks (not necessarily optimal).
  * @param <T> the type of value being implemented with the queue.
  */
 
@@ -50,19 +50,17 @@ public class myQueue<T> {
      *  @param element an object or value to add to the queue.
      */
     public void add(T element) {
-        if (maxCapacity > 0) {
-            try {
-                if (currentCapacity > maxCapacity) {
-                    throw new IllegalStateException();
-                } else {
-                    mainStack.add(element);
-                }
-            } catch (IllegalStateException e) {
-                System.out.println("You have exceeded the maximum capacity of this queue.");
+
+        try {
+            if (currentCapacity >= maxCapacity) {
+                throw new IllegalStateException();
+            } else {
+                mainStack.add(element);
             }
-        } else {
-            mainStack.add(element);
+        } catch (IllegalStateException e) {
+            System.out.println("You have exceeded the maximum capacity of this queue.");
         }
+
     }
 
     /** Returns head of the queue but does not remove it.  */

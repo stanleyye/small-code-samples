@@ -50,7 +50,6 @@ public class myQueue<T> {
      *  @param element an object or value to add to the queue.
      */
     public void add(T element) {
-
         try {
             if (currentCapacity >= maxCapacity) {
                 throw new IllegalStateException();
@@ -60,7 +59,6 @@ public class myQueue<T> {
         } catch (IllegalStateException e) {
             System.out.println("You have exceeded the maximum capacity of this queue.");
         }
-
     }
 
     /** Returns head of the queue but does not remove it.  */
